@@ -33,8 +33,8 @@ You should update the following entries in the `auth0-oauth\edge.json` file.
 * `https://org-env.apigee.net/`
 
 ## Helpful to Know
-[apigee-config-maven-plugin](https://github.com/apigee/apigee-config-maven-plugin)
-[apigee-maven-deploy-plugin](https://github.com/apigee/apigee-deploy-maven-plugin)
+* [apigee-config-maven-plugin](https://github.com/apigee/apigee-config-maven-plugin)
+* [apigee-maven-deploy-plugin](https://github.com/apigee/apigee-deploy-maven-plugin)
 
 ## Deploy
 Follow the steps below to deploy shared flows, the proxy and the necessary configuration.
@@ -75,6 +75,7 @@ https://{org}-{env}.apigee.net/oauth_auth0/authorize?{client_id}=clientID&respon
 ```
 
 1. You will be redirected to the Auth0 login screen.
+  * login with the Auth0 user that you created.  
 2. The authorization code will be downloaded to your local machine.
 3. Copy the authorization code into the request below. Be sure to update
   * `org`
