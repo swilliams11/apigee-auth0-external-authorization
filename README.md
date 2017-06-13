@@ -14,10 +14,21 @@ export ae_username=apigeeusername
 export ae_org=apigeeorg
 ```
 
+### Auth0
+You should create an Auth0 account and obtain a client Id and secret.
+Read this [community article](https://community.apigee.com/articles/42269/auth0-with-apigee.html) if you are not familiar with Auth0.
+
+
+## Helpful to Know
+[apigee-config-maven-plugin](https://github.com/apigee/apigee-config-maven-plugin)
+[apigee-maven-deploy-plugin](https://github.com/apigee/apigee-deploy-maven-plugin)
+
 ## Deploy
-Follow the steps below to deploy the proxy and the necessary configuration.
+Follow the steps below to deploy shared flows, the proxy and the necessary configuration.
 
 ### Deploy a Shared Flows
+The shared flows must be deployed first.
+
 ```
 cd auth0-ProxyDefaultFaultRule
 mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Dorg=$ae_org -Dauthtype=oauth
@@ -30,4 +41,18 @@ mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Do
 cd auth0-auth
 mvn install -Ptest -Dusername=$ae_username -Dpassword=$ae_password \
                     -Dorg=$ae_org -Dauthtype=oauth -Dapigee.config.options=create
-```                  
+```
+## Create the client ID and secret in Edge
+Once you create the Auth0 application and you have created the Apigee product and app, then you have to add the client Id and secret into Edge. Use the following API calls to add the credentials to Edge.
+
+[Create a consumer key/secret](http://docs.apigee.com/management/apis/post/organizations/%7Borg_name%7D/developers/%7Bdeveloper_email_or_id%7D/apps/%7Bapp_name%7D/keys/create)
+
+[Associate the consumer key and secret with an Apigee product](http://docs.apigee.com/management/apis/post/organizations/%7Borg_name%7D/developers/%7Bdeveloper_email_or_id%7D/apps/%7Bapp_name%7D/keys/%7Bconsumer_key%7D)
+
+The payload for this request is shown below.
+```
+{ "apiProducts": ["auth0-product"] }
+```
+
+
+## Curl Commands

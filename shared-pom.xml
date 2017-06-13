@@ -54,6 +54,48 @@
                </executions>
            </plugin>
            <plugin>
+               <groupId>com.apigee.edge.config</groupId>
+               <artifactId>apigee-config-maven-plugin</artifactId>
+               <version>1.1.4</version>
+               <executions>
+                   <execution>
+                       <id>create-config-cache</id>
+                       <phase>verify</phase>
+                       <goals>
+                           <goal>caches</goal>
+                       </goals>
+                   </execution>
+                   <execution>
+                       <id>create-config-targetserver</id>
+                       <phase>verify</phase>
+                       <goals>
+                           <goal>targetservers</goal>
+                       </goals>
+                   </execution>
+                   <execution>
+                       <id>create-config-apiproduct</id>
+                       <phase>install</phase>
+                       <goals>
+                           <goal>apiproducts</goal>
+                       </goals>
+                   </execution>
+                   <execution>
+                       <id>create-config-developer</id>
+                       <phase>install</phase>
+                       <goals>
+                           <goal>developers</goal>
+                       </goals>
+                   </execution>
+                   <execution>
+                       <id>create-config-app</id>
+                       <phase>install</phase>
+                       <goals>
+                           <goal>apps</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+           <plugin>
                <groupId>io.apigee.build-tools.enterprise4g</groupId>
                <artifactId>apigee-edge-maven-plugin</artifactId>
                <version>1.1.5</version>
