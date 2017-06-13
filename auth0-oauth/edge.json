@@ -1,0 +1,131 @@
+{
+    "version": "1.0",
+    "envConfig": {
+        "test": {
+          "targetServers": [
+              {
+                "name" : "auth0",
+                "host" : "yourdomain.auth0.com",
+                "isEnabled" : true,
+                "port" : 443,
+                "sSLInfo": {
+                  "enabled": "true"
+                }
+              }
+          ],
+          "caches": [
+              {
+                "name": "CacheAuth0",
+                "description": "Auth0 Cache",
+                "expirySettings": {
+                    "timeoutInSec": {
+                        "value": "300"
+                    },
+                    "valuesNull": false
+                }
+              }
+          ],
+          "kvms": [
+              {
+                  "name": "auth0Config",
+                  "entry": [
+                      {
+                          "name": "authDomain",
+                          "value": "https://yourdomain.auth0.com	"
+                      },
+                      {
+                          "name": "apigeeRedirect",
+                          "value": "https://org-env.apigee.net/	"
+                      }
+                  ]
+              }
+          ]
+        },
+        "prod": {
+          "targetServers": [
+              {
+                "name" : "auth0",
+                "host" : "yourdomain.auth0.com",
+                "isEnabled" : true,
+                "port" : 443,
+                "sSLInfo": {
+                  "enabled": "true"
+                }
+              }
+          ],
+          "caches": [
+              {
+                "name": "CacheAuth0",
+                "description": "Auth0 Cache",
+                "expirySettings": {
+                    "timeoutInSec": {
+                        "value": "300"
+                    },
+                    "valuesNull": false
+                }
+              }
+          ],
+          "kvms": [
+              {
+                  "name": "auth0Config",
+                  "entry": [
+                      {
+                          "name": "authDomain",
+                          "value": "https://yourdomain.auth0.com	"
+                      }
+                  ]
+              }
+          ]
+        }
+    },
+    "orgConfig": {
+        "apiProducts": [
+            {
+                "name": "auth0-product",
+                "apiResources": [
+                    "/",
+                    "/**"
+                ],
+                "approvalType": "auto",
+                "attributes": [
+                    {
+                        "name": "description",
+                        "value": "Auth0 product"
+                    }
+                ],
+                "description": "Auth0 Product",
+                "displayName": "Auth0 OAuth Product",
+                "environments": [
+                    "test",
+                    "prod"
+                ],
+                "proxies": [
+                    "auth0_oauth"
+                ],
+                "quota": "10000",
+                "quotaInterval": "1",
+                "quotaTimeUnit": "month",
+                "scopes": []
+            }
+        ],
+        "developers": [
+            {
+                "email": "john@example.com",
+                "firstName": "John",
+                "lastName": "Example",
+                "userName": "johnexample",
+                "attributes": []
+            }
+        ],
+        "developerApps": {
+            "john@example.com": [
+                {
+                    "name": "auth0-app",
+                    "apiProducts": [ "auth0-product" ],
+                    "callbackUrl": "https://callback.io",
+                    "scopes": []
+                }
+            ]
+        }
+    }
+}

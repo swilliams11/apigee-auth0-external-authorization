@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <DefaultFaultRule>
+        <AlwaysEnforce>true</AlwaysEnforce>
+        <Step>
+            <Name>FC-DefaultFaultRule</Name>
+        </Step>
+    </DefaultFaultRule>
+    <FaultRules>
+        <!-- Rules execute bottom to top in here, but top to bottom in the flow callout -->
+        <FaultRule name="Shared Fault Rules">
+            <Step>
+                <Name>FC-ProxyFaultRules</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="rule1">
+            <Condition>jwt_error != null</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>AM-PublishError</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <Flows>
+        <Flow name="authorize">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>OA-ValidateClientIdRedirect</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ConcatClientIdRedirect</Name>
+                </Step>
+                <Step>
+                    <Name>PC-StoreCookieWithClientIdAndRedirect</Name>
+                </Step>
+                <Step>
+                    <Name>JS-SetRedirectURI</Name>
+                </Step>
+                <Step>
+                    <Name>AM-UpdateRedirectURI</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>KL-GetAuth0Config</Name>
+                </Step>
+                <Step>
+                    <Name>JS-UpdateLocationHeader</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/authorize") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="redirect">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>LC-GetClientIdRedirect</Name>
+                </Step>
+                <Step>
+                    <Name>JS-SplitClientIdRedirect</Name>
+                </Step>
+                <Step>
+                    <Name>EV-AuthCode</Name>
+                </Step>
+                <Step>
+                    <Name>AM-TempVariables</Name>
+                </Step>
+                <Step>
+                    <Name>OA-StoreExternalAuthorizationCode</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/redirect") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="token">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>OA-ValidateAccessCode</Name>
+                </Step>
+                <Step>
+                    <Name>JS-SetRedirectURI</Name>
+                </Step>
+                <Step>
+                    <Name>AM-TokenRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="unknown request">
+            <Request>
+                <Step>
+                    <FaultRules/>
+                    <Name>RF-UnknownRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <HTTPProxyConnection>
+        <BasePath>/oauth_auth0</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="no-route">
+        <Condition>proxy.pathsuffix = "/redirect"</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

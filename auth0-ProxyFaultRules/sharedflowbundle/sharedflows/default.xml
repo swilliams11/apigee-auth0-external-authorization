@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <!-- Proxy Fault Rules execute bottom to top in Fault Rules in the proxy, but top to bottom in shared flow-->
+    <Step>
+        <Name>JS-ProxyFaultHandling</Name>
+    </Step>
+</SharedFlow>

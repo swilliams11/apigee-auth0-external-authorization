@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PC-StoreCookieWithClientIdAndRedirect">
+    <DisplayName>PC-StoreCookieWithClientIdAndRedirect</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <Prefix/>
+        <KeyFragment ref="request.header.Cookie"/>
+    </CacheKey>
+    <CacheResource>CacheAuth0</CacheResource>
+    <Scope>Exclusive</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>3600</TimeoutInSec>
+    </ExpirySettings>
+    <Source>cache.clientIdRedirect</Source>
+</PopulateCache>

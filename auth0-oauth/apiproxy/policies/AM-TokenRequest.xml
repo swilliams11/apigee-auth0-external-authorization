@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-TokenRequest">
+    <DisplayName>AM-TokenRequest</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/x-www-form-urlencoded" variablePrefix="@" variableSuffix="#">client_id=@request.formparam.client_id#&amp;code=@request.formparam.code#&amp;grant_type=@request.formparam.grant_type#&amp;redirect_uri=@auth0.redirect#</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

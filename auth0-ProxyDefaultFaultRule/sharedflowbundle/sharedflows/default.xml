@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <Step>
+        <Condition>(request.verb != "OPTIONS") and (auth0.errorCode = null)</Condition>
+        <Name>AM-SetProxyDefaultErrorVars</Name>
+    </Step>
+    <Step>
+        <Condition>(request.verb != "OPTIONS")</Condition>
+        <Name>AM-SetStandardFaultResponse</Name>
+    </Step>
+</SharedFlow>

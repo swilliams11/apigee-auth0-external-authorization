@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="Auth0-ProxyDefaultFaultRule">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1497287252875</CreatedAt>
+    <Description>Proxy default fault rule using escapeJSON</Description>
+    <DisplayName>Auth0-ProxyDefaultFaultRule</DisplayName>
+    <LastModifiedAt>1497287252875</LastModifiedAt>
+    <Policies>
+        <Policy>AM-SetProxyDefaultErrorVars</Policy>
+        <Policy>AM-SetStandardFaultResponse</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

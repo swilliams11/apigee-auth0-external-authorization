@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="Auth0-ProxyFaultRules">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1497287295503</CreatedAt>
+    <Description>Proxy fault rules to assign message for standard response in default fault rule using Javascript callout</Description>
+    <DisplayName>Auth0-ProxyFaultRules</DisplayName>
+    <LastModifiedAt>1497287295503</LastModifiedAt>
+    <Policies>
+        <Policy>AM-Debug</Policy>
+        <Policy>JS-ProxyFaultHandling</Policy>
+    </Policies>
+    <Resources>
+        <Resource>jsc://ProxyFaultHandling.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

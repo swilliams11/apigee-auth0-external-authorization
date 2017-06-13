@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-TempVariables">
+    <DisplayName>AM-TempVariables</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>grant_type</Name>
+        <Value>authorization_code</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>response_type</Name>
+        <Value>code</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>request.formparam.client_id</Name>
+        <Ref>cache.clientId</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>oauth_external_authorization_status</Name>
+        <Value>true</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>redirect_uri</Name>
+        <Ref>cache.redirect</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>request.formparam.code</Name>
+        <Ref>request.queryparam.code</Ref>
+    </AssignVariable>
+    <!--AssignVariable>
+        <Name>code</Name>
+        <Ref>request.queryparam.code</Ref>
+    </AssignVariable-->
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

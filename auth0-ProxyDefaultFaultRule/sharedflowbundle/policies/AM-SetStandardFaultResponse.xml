@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetStandardFaultResponse">
+    <DisplayName>AM-SetStandardFaultResponse</DisplayName>
+    <Properties/>
+    <Remove>
+        <Headers>
+            <Header name="X-Application-Context"/>
+        </Headers>
+    </Remove>
+    <Set>
+        <Headers/>
+        <Payload contentType="application/json">
+                {
+                    "errors": [
+                        {
+                            "code": "{auth0.errorCode}",
+                            "userMessage": "{auth0.errorUserMessage}",
+                            "systemMessage": "{escapeJSON(auth0.errorSystemMessage)}",
+                            "info": "http://sample.com/docs/errors#{auth0.errorCode}"
+                        }
+                    ]
+                }
+            </Payload>
+        <StatusCode>{auth0.errorStatusCode}</StatusCode>
+        <ReasonPhrase>{auth0.errorReasonPhrase}</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

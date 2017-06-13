@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-PublishError">
+    <DisplayName>AM-PublishError</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="%" variableSuffix="#">{
+  "error" : {
+    "code" : 500,
+    "jwt_error" : "jwt_error",
+    "message" : "%jwt_error#",
+    "reason" : "%jwt_reason#"
+  }
+}
+</Payload>
+        <StatusCode>500</StatusCode>
+        <ReasonPhrase>Server Error</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

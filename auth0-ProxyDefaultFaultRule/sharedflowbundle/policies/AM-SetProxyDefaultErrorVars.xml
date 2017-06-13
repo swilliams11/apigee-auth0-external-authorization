@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="false" name="AM-SetProxyDefaultErrorVars">
+    <DisplayName>AM-SetProxyDefaultErrorVars</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>auth0.errorCode</Name>
+        <Value>auth0.500.000</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>auth0.errorUserMessage</Name>
+        <Value>Unknown server error</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>auth0.errorSystemMessage</Name>
+        <Value>No more details available</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>auth0.errorStatusCode</Name>
+        <Value>500</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>auth0.errorReasonPhrase</Name>
+        <Value>Server Error</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

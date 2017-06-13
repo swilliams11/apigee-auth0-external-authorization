@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="auth0_oauth">
+    <Basepaths>/oauth_auth0</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1497307605351</CreatedAt>
+    <Description>External authorization code with Auth0</Description>
+    <DisplayName>auth0_oauth</DisplayName>
+    <LastModifiedAt>1497307605351</LastModifiedAt>
+    <Policies>
+        <Policy>AM-ContentTypeJSON</Policy>
+        <Policy>AM-PublishError</Policy>
+        <Policy>AM-TempVariables</Policy>
+        <Policy>AM-TokenRequest</Policy>
+        <Policy>AM-UpdateRedirectURI</Policy>
+        <Policy>EV-AuthCode</Policy>
+        <Policy>FC-DefaultFaultRule</Policy>
+        <Policy>FC-ProxyFaultRules</Policy>
+        <Policy>JS-ConcatClientIdRedirect</Policy>
+        <Policy>JS-SetRedirectURI</Policy>
+        <Policy>JS-SplitClientIdRedirect</Policy>
+        <Policy>JS-UpdateLocationHeader</Policy>
+        <Policy>KL-GetAuth0Config</Policy>
+        <Policy>LC-GetClientIdRedirect</Policy>
+        <Policy>OA-StoreExternalAuthorizationCode</Policy>
+        <Policy>OA-ValidateAccessCode</Policy>
+        <Policy>OA-ValidateClientIdRedirect</Policy>
+        <Policy>PC-StoreCookieWithClientIdAndRedirect</Policy>
+        <Policy>RF-UnknownRequest</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://ConcatClientIdRedirect.js</Resource>
+        <Resource>jsc://SetRedirectURI.js</Resource>
+        <Resource>jsc://SplitClientIdRedirect.js</Resource>
+        <Resource>jsc://UpdateLocationHeader.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-UnknownRequest">
+    <Description>Unknown Request</Description>
+    <DisplayName>RF-UnknownRequest</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json" variablePrefix="%" variableSuffix="#">{
+  "error" : {
+    "code" : 404.01,
+    "message" : "that request was unknown; try one of the following. See the readme for details.",
+    "suggestions" : [
+      "POST %proxy.basepath#/authorize",
+      "POST %proxy.basepath#/token"
+    ]
+  }
+}
+</Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Not Found</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

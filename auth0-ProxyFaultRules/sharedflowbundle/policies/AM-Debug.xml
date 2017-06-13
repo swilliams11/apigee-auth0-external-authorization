@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Debug">
+    <DisplayName>AM-Debug</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>debug.fault.name</Name>
+        <Value/>
+        <Ref>fault.name</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>debug.proxy.name</Name>
+        <Value/>
+        <Ref>apiproxy.name</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
