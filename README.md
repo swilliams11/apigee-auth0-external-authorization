@@ -6,12 +6,28 @@ This proxy demonstrates how to enable external party authorization with Auth0.  
 ## Prerequisites
 [Install acurl](http://docs.apigee.com/api-services/content/using-oauth2-security-apigee-edge-management-api#howtogetoauth2tokens)
 
+
+You must export the following environment variables:
+```
+export ae_password=apigeepassword
+export ae_username=apigeeusername
+export ae_org=apigeeorg
+```
+
 ## Deploy
 Follow the steps below to deploy the proxy and the necessary configuration.
 
-### Proxy
-
+### Deploy a Shared Flows
 ```
+cd auth0-ProxyDefaultFaultRule
+mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Dorg=$ae_org -Dauthtype=oauth
+cd auth0-ProxyFaultRules
+mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Dorg=$ae_org -Dauthtype=oauth
+```
+
+### Proxy
+```
+cd auth0-auth
 mvn install -Ptest -Dusername=$ae_username -Dpassword=$ae_password \
-                    -Dorg=$apigee_org -Dauthtype=oauth -Dapigee.config.options=create
+                    -Dorg=$ae_org -Dauthtype=oauth -Dapigee.config.options=create
 ```                  
