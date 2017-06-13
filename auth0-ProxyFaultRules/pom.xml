@@ -8,8 +8,65 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Apigee</groupId>
-	<artifactId>auth0-ProxyFaultRules</artifactId>
+	<artifactId>Auth0-ProxyFaultRules</artifactId>
 	<version>1.0</version>
-	<name>auth0-ProxyFaultRules</name>
+	<name>Auth0-ProxyFaultRules</name>
 	<packaging>pom</packaging>
+	<properties>
+            <main.basedir>${project.basedir}</main.basedir>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <encoding>UTF-8</encoding>
+                             <echo message="basedir parent : ${basedir}"/>
+                            <outputDirectory>${basedir}/target/sharedflowbundle</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>sharedflowbundle</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                <artifactId>apigee-edge-maven-plugin</artifactId>
+                <version>1.1.5</version>
+                <executions>
+                    <execution>
+                        <id>configure-bundle</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy-bundle</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

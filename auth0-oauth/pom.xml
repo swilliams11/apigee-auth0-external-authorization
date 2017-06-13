@@ -8,8 +8,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Apigee</groupId>
-	<artifactId>auth0-oauth</artifactId>
+	<artifactId>auth0_oauth</artifactId>
 	<version>1.0</version>
-	<name>auth0-oauth</name>
+	<name>auth0_oauth</name>
 	<packaging>pom</packaging>
 </project>
