@@ -52,13 +52,14 @@ mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Do
 ```
 
 ### Proxy
+This will deploy the `auth0-auth` proxy and create the Apigee developer, product and app.  
 ```
 cd auth0-auth
 mvn install -Ptest -Dusername=$ae_username -Dpassword=$ae_password \
                     -Dorg=$ae_org -Dauthtype=oauth -Dapigee.config.options=create
 ```
 ## Create the client ID and secret in Edge
-Once you create the Auth0 application and you have created the Apigee product and app, then you have to add the client Id and secret into Edge. Use the following API calls to add the credentials to Edge.
+Once you create the Auth0 application and you have created the Apigee product and app, then you have to add the client ID and secret into Edge. Use the following API calls to add the credentials to Edge.
 
 [Create a consumer key/secret](http://docs.apigee.com/management/apis/post/organizations/%7Borg_name%7D/developers/%7Bdeveloper_email_or_id%7D/apps/%7Bapp_name%7D/keys/create)
 
