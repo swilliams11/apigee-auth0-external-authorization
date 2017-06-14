@@ -52,7 +52,7 @@ mvn install -PtestSharedFlow -Dusername=$ae_username -Dpassword=$ae_password -Do
 ```
 
 ### Proxy
-This will deploy the `auth0-auth` proxy and create the Apigee developer named `john@example.com`, product named `auth0-product` and an app named `auth0-app`.  
+This will deploy the `auth0-auth` proxy and create the Apigee developer named `john@example.com`, a product named `auth0-product` and an app named `auth0-app`.  
 ```
 cd auth0-auth
 mvn install -Ptest -Dusername=$ae_username -Dpassword=$ae_password \
