@@ -23,7 +23,7 @@ export ae_org=apigeeorg
 
 ### Auth0
 You should create an account in [Auth0](https://auth0.com/) and create a [Auth0 client](https://auth0.com/docs/clients) to obtain a client ID and secret.
-A good starting point is to read this [community article](https://community.apigee.com/articles/42269/auth0-with-apigee.html) if you are not familiar with Auth0. It will provides instructions to setup a new client and obtain a client Id and secret.
+A good starting point is to read this [community article](https://community.apigee.com/articles/42269/auth0-with-apigee.html). It provides instructions to setup a new Auth0 client to obtain a client ID and secret.
 
 * The redirect URI that you should enter into your Auth0 client is `https://org-env.apigee.net/oauth_auth0/redirect`.
 * Create a user in Auth0. This is the user that you will use to login during the redirect step.
