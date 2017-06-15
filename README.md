@@ -98,6 +98,7 @@ curl -X POST \
 ```
 
 Now you have a Auth0 JWT that was proxied through Apigee Edge.  
+
 Please note the following:
 1. The JWT is not stored in Apigee Edge (TODO create separate repo to demo this)
 2. You should validate the JWT with Dino's [JWT Java callout](https://github.com/apigee/iloveapis2015-jwt-jwe-jws).
@@ -105,4 +106,5 @@ Please note the following:
    * However, the JWT includes the client ID, so you could extract that from the JWT and then include a VerifyAPIKey policy on the preflow, they Apigee will know who the developer is and will populate all the analytics associated with the developer.  
 
 ## TODO
-Create a new repo that demonstrates how to save the JWT as an access token in Apigee Edge. 
+1. Create a new repo that demonstrates how to save the JWT as an access token in Apigee Edge.
+2. Create a proxy to demo how to extract the client ID from the JWT and then use the Validate API Key policy to populate all the default analytics.
