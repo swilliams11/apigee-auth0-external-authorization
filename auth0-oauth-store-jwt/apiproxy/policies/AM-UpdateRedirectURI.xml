@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-UpdateRedirectURI">
+    <DisplayName>AM-UpdateRedirectURI</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers/>
+        <QueryParams>
+            <QueryParam name="redirect_uri">{auth0.redirect}</QueryParam>
+        </QueryParams>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

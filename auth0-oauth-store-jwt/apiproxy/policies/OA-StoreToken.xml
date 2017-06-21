@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-StoreToken">
+    <DisplayName>OA-StoreToken</DisplayName>
+    <Properties/>
+    <Attributes/>
+    <ExternalAuthorization>true</ExternalAuthorization>
+    <ExternalAccessToken>apigee.jwt</ExternalAccessToken>
+    <Operation>GenerateAccessToken</Operation>
+    <StoreToken>true</StoreToken>
+    <SupportedGrantTypes>
+        <GrantType>client_credentials</GrantType>
+    </SupportedGrantTypes>
+    <GenerateResponse enabled="false"/>
+</OAuthV2>

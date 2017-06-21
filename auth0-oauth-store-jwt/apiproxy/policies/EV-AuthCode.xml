@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-AuthCode">
+    <DisplayName>EV-AuthCode</DisplayName>
+    <Properties/>
+    <Source clearPayload="false">request</Source>
+    <QueryParam name="code">
+        <Pattern ignoreCase="true">{code}</Pattern>
+    </QueryParam>
+    <VariablePrefix>tmobile</VariablePrefix>
+</ExtractVariables>

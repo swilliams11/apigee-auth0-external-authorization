@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-ValidateClientIdRedirect">
+    <DisplayName>OA-ValidateClientIdRedirect</DisplayName>
+    <Properties/>
+    <ResponseType>request.queryparam.response_type</ResponseType>
+    <ClientId>request.queryparam.client_id</ClientId>
+    <RedirectUri>request.queryparam.redirect_uri</RedirectUri>
+    <Scope>request.queryparam.scope</Scope>
+    <GenerateResponse enabled="false"/>
+    <Tokens/>
+</OAuthV2>

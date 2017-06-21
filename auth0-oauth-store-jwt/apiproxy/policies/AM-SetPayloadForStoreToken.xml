@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetPayloadForStoreToken">
+    <DisplayName>AM-SetPayloadForStoreToken</DisplayName>
+    <Properties/>
+    <Set>
+        <FormParams>
+            <FormParam name="client_id">{apigee.client_id}</FormParam>
+            <FormParam name="grant_type">client_credentials</FormParam>
+        </FormParams>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request">request</AssignTo>
+</AssignMessage>

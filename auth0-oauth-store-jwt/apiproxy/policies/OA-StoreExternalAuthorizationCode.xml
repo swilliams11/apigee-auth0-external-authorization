@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-StoreExternalAuthorizationCode">
+    <DisplayName>OA-StoreExternalAuthorizationCode</DisplayName>
+    <Operation>GenerateAuthorizationCode</Operation>
+    <ClientId>request.formparam.client_id</ClientId>
+    <ResponseType>response_type</ResponseType>
+    <!--RedirectUri>redirect_uri</RedirectUri-->
+    <GenerateResponse enabled="false"/>
+    <ExternalAuthorization>true</ExternalAuthorization>
+    <ExternalAuthorizationCode>request.formparam.code</ExternalAuthorizationCode>
+    <!--ExternalAuthorizationCode>authcode</ExternalAuthorizationCode-->
+    <StoreToken>true</StoreToken>
+    <!--GrantType>grant_type</GrantType-->
+    <!--SupportedGrantTypes>
+        <GrantType>authorization_code</GrantType>
+    </SupportedGrantTypes-->
+    <Tokens/>
+</OAuthV2>

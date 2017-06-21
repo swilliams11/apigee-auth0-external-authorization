@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="2" name="auth0_oauth_store_jwt">
+    <Basepaths>/oauth_auth0</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1497992480675</CreatedAt>
+    <Description>External authorization code with Auth0 and it stores the JWT as external access token</Description>
+    <DisplayName>auth0_oauth_store_jwt</DisplayName>
+    <LastModifiedAt>1498063788165</LastModifiedAt>
+    <Policies>
+        <Policy>AM-AssignOriginalResponseContent</Policy>
+        <Policy>AM-ContentTypeJSON</Policy>
+        <Policy>AM-PublishError</Policy>
+        <Policy>AM-SaveClientId</Policy>
+        <Policy>AM-SetOauthExternalAuthorizationStatus</Policy>
+        <Policy>AM-SetPayloadForStoreToken</Policy>
+        <Policy>AM-TempVariables</Policy>
+        <Policy>AM-TokenRequest</Policy>
+        <Policy>AM-UpdateRedirectURI</Policy>
+        <Policy>BA-EncodeClientIdSecret</Policy>
+        <Policy>EV-AuthCode</Policy>
+        <Policy>EV-ExtractJWT</Policy>
+        <Policy>FC-DefaultFaultRule</Policy>
+        <Policy>FC-ProxyFaultRules</Policy>
+        <Policy>JS-ConcatClientIdRedirect</Policy>
+        <Policy>JS-SetRedirectURI</Policy>
+        <Policy>JS-SplitClientIdRedirect</Policy>
+        <Policy>JS-UpdateLocationHeader</Policy>
+        <Policy>KL-GetAuth0Config</Policy>
+        <Policy>LC-GetClientIdRedirect</Policy>
+        <Policy>OA-StoreExternalAuthorizationCode</Policy>
+        <Policy>OA-StoreToken</Policy>
+        <Policy>OA-ValidateAccessCode</Policy>
+        <Policy>OA-ValidateClientIdRedirect</Policy>
+        <Policy>PC-StoreCookieWithClientIdAndRedirect</Policy>
+        <Policy>RF-UnknownRequest</Policy>
+        <Policy>SC-Auth0JWT</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://ConcatClientIdRedirect.js</Resource>
+        <Resource>jsc://SetRedirectURI.js</Resource>
+        <Resource>jsc://SplitClientIdRedirect.js</Resource>
+        <Resource>jsc://UpdateLocationHeader.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

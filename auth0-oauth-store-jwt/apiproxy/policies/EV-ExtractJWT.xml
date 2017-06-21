@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractJWT">
+    <DisplayName>EV-ExtractJWT</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="jwt">
+            <JSONPath>$.access_token</JSONPath>
+        </Variable>
+        <Variable name="payload">
+            <JSONPath>$.</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">calloutResponse.content</Source>
+    <VariablePrefix>apigee</VariablePrefix>
+</ExtractVariables>
