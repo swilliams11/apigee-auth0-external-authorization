@@ -246,7 +246,7 @@ Your jwt is valid, but I didn't validate it with public key!
 
 ## Auth0 API Identifier
 To find your Auth0 API Identifier follow the steps below.
-1. Click the APIs section.
+1. Click the APIs section and then select your API from the list.
 
 ![APIs Section](https://github.com/swilliams11/apigee-auth0-external-authorization/blob/master/images/apis.png)
 
