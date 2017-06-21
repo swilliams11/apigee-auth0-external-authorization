@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="auth0_test_proxy">
+    <Basepaths>/auth0_test_proxy</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1498005627913</CreatedAt>
+    <Description></Description>
+    <DisplayName>auth0_test_proxy</DisplayName>
+    <LastModifiedAt>1498064220953</LastModifiedAt>
+    <Policies>
+        <Policy>200OK</Policy>
+        <Policy>remove-header-authorization</Policy>
+        <Policy>verify-oauth-v2-access-token</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>
