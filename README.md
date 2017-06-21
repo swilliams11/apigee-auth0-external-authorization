@@ -216,7 +216,7 @@ Please note the following:
 
 1. Deploy the proxy
 ```
-cd ../auth0-text-proxy
+cd ../auth0-test-proxy
 mvn install -Ptest -Dusername=$ae_username -Dpassword=$ae_password \
                     -Dorg=$ae_org -Dauthtype=oauth
 ```
