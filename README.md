@@ -178,9 +178,11 @@ The payload for this request is shown below.
 ```
 
 4. Start Apigee Edge trace and test the deployment
-Copy the following command into your browser.  Be sure to update the `{org}`, `{env}` and `{clientID}`.
+Copy the following command into your browser.  Be sure to update the [`auth0_api_identifier`](#auth0-api-identifier), `{org}`, `{env}` and `{clientID}`.
+
+
 ```
-https://{org}-{env}.apigee.net/oauth_auth0/authorize?client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
+https://{org}-{env}.apigee.net/oauth_auth0/authorize?audience={auth0_api_identifier}&client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
 
 * Login to the Auth0 with your username and password.
@@ -241,6 +243,17 @@ HTTP/1.1 200 OK
 * Connection #0 to host org-env.apigee.net left intact
 Your jwt is valid, but I didn't validate it with public key!
 ```
+
+## Auth0 API Identifier
+To find your Auth0 API Identifier follow the steps below.
+1. Click the APIs section.
+![APIs Section](https://github.com/swilliams11/apigee-auth0-external-authorization/images/apis.png)
+
+2. Click the Settings link.
+![Settings Section](https://github.com/swilliams11/apigee-auth0-external-authorization/images/settings.png)
+
+3. Scroll down and you should see the identifier.
+![Identifier](https://github.com/swilliams11/apigee-auth0-external-authorization/images/identifier.png)
 
 # TODO
 1. Create a new repo that demonstrates how to save the JWT as an access token in Apigee Edge. - COMPLETE

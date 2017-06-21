@@ -15,6 +15,6 @@
         <LoadBalancer>
             <Server name="auth0"/>
         </LoadBalancer>
-        <Path>/oauth</Path>
+        <!--Path>/oauth</Path-->
     </HTTPTargetConnection>
 </TargetEndpoint>
