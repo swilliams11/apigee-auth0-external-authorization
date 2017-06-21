@@ -247,13 +247,14 @@ Your jwt is valid, but I didn't validate it with public key!
 ## Auth0 API Identifier
 To find your Auth0 API Identifier follow the steps below.
 1. Click the APIs section.
-![APIs Section](https://github.com/swilliams11/apigee-auth0-external-authorization/images/apis.png)
+
+![APIs Section](https://github.com/swilliams11/apigee-auth0-external-authorization/blob/master/images/apis.png)
 
 2. Click the Settings link.
-![Settings Section](https://github.com/swilliams11/apigee-auth0-external-authorization/images/settings.png)
+![Settings Section](https://github.com/swilliams11/apigee-auth0-external-authorization/blob/master/images/settings.png)
 
 3. Scroll down and you should see the identifier.
-![Identifier](https://github.com/swilliams11/apigee-auth0-external-authorization/images/identifier.png)
+![Identifier](https://github.com/swilliams11/apigee-auth0-external-authorization/blob/master/images/identifier.png)
 
 # TODO
 1. Create a new repo that demonstrates how to save the JWT as an access token in Apigee Edge. - COMPLETE
