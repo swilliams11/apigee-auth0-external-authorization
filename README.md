@@ -56,17 +56,13 @@ This proxy demonstrates how to enable external authorization with Auth0.  It sav
 
 The `auth0-oauth` proxy does not save the JWT as an external access token.  Once the client has the JWT, then they should include that as an `Authorization: Bearer` header on subsequent requests.  All of your other proxies should validate the JWT, with the public certificate, expiry and custom claims.  Make sure to include the [JWT/JWE/JWS Java Callout](https://github.com/apigee/iloveapis2015-jwt-jwe-jws) written by Dino, which validates JWTs.  
 
-There is only one issue with this approach, Edge will not have the developer details, so you won't know who called your API proxy.  I will list two approaches to solve this problem:
-1. Store the JWT as an External access token
-  * I would recommend validating the JWT before you store it as an external access token.
-2. Validate and decode the JWT, extract the client_id, use the Verify API Key to validate it
-
-Both options accomplish the same goal, to ensure that Apigee Edge has the developer info to populate analytics.  
+There is only one issue with this approach, Edge will not have the developer details, so you won't know who called your API proxy.  There is one approach to solve this problem:
+1. Validate and decode the JWT, extract the client_id, use the Verify API Key to validate it.  This will ensure that the developer details are assigned to the request and your analytics will be updated accordingly.
 
 ### High-level Flow
 * `/authorize` - validates the client ID redirect uri and forwards the request to Auth0 to generate the authorization code.
 * `/redirect` - called by Auth0 and extracts the Auth0 authorization code and saves it in Apigee Edge.
-* `/token` - validates the client ID and redirect URI and forward the request to Auth0 to generate the JWT.
+* `/token` - validates the client ID and redirect URI and forward the request to Auth0 to generate the access token (opaque or JWT).
 
 
 ## Deploy
@@ -116,11 +112,11 @@ The payload for this request is shown below.
 ## Test the Deployment
 After you have your Auth0 configured and you have deployed the proxy you should copy the following command into your browser.  Be sure to update the [`auth0_api_identifier`](#auth0-api-identifier), `{org}`, `{env}` and `{clientID}`.
 
+**If you don't include the `audience` parameter then you will not receive a JWT as an access token.**
+
 ```
 https://{org}-{env}.apigee.net/oauth_auth0/authorize?audience={auth0_api_identifier}&{client_id}=clientID&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
-
-**If you don't include the `audience` parameter then you will not receive a JWT as an access token.**
 
 1. You will be redirected to the Auth0 login screen.
   * login with the Auth0 user that you created.  
@@ -139,13 +135,13 @@ curl -X POST \
   -d 'client_id={clientID}&code={authCode}&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fcallback.io&client_secret={secret}'
 ```
 
-Now you have a Auth0 JWT that was proxied through Apigee Edge.  
+Now you have an Auth0 JWT that was proxied through Apigee Edge.  
 
 Please note the following:
-1. The JWT is not stored in Apigee Edge (TODO create separate repo to demo this)
+1. The JWT is not stored in Apigee Edge.
 2. You should validate the JWT with Dino's [JWT Java callout](https://github.com/apigee/iloveapis2015-jwt-jwe-jws).
 3. You will miss out on some analytics because the Verify API key/Validate Access Token policy is not included in the proxy, so you won't know who the developer is.
-   * However, the JWT includes the client ID, so you could extract that from the JWT and then include a VerifyAPIKey policy on the preflow, they Apigee will know who the developer is and will populate all the analytics associated with the developer.  
+   * However, the JWT includes the client ID (or should include it), so you could extract that from the JWT and then include a VerifyAPIKey policy on the preflow, then Apigee will know who the developer is and will populate all the analytics data associated with the developer.  
 
 
 # Save Auth0's Access Token in Apigee Edge
@@ -195,17 +191,17 @@ The payload for this request is shown below.
 Copy the following command into your browser.  Be sure to update the `{org}`, `{env}` and `{clientID}`.
 
 
-**Note: that you should NOT include the audience parameter in the /authorize request.  In this case Auth0 will return an opaque access token.**
+**Note: that you should NOT include the audience parameter in the /authorize request.  In this case Auth0 will return an opaque access token (one small enough to be saved in Apigee Edge).**
 ```
 https://{org}-{env}.apigee.net/oauth_auth0_save_token/authorize?client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
 
-**If you include the [`audience parameter`](#auth0-api-identifier) then Auth0 will return a JWT for the access token and it will NOT be saved in Apigee Edge.**
+**If you include the [`audience parameter`](#auth0-api-identifier) then Auth0 will return a JWT as the access token and it will NOT be saved in Apigee Edge. Please note that you will not receive an error either; it silently fails. However, when you send a request to a proxy with the VerifyAccessToken policy, then that policy will always fail with the message "invalid access token."**
 ```
 https://{org}-{env}.apigee.net/oauth_auth0_save_token/authorize?audience={auth0_api_identifier}&client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
 
-* Login to Auth0 with your username and password.
+* Your browser should be redirected to the Auth0 login page.  Login to Auth0 with the username and password you created earlier.
 * Save the authorization code and enter it into the request below.
 
 Request for an access token
