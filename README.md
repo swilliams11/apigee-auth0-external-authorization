@@ -197,12 +197,12 @@ Copy the following command into your browser.  Be sure to update the `{org}`, `{
 
 **Note: that you should NOT include the audience parameter in the /authorize request.  In this case Auth0 will return an opaque access token.**
 ```
-https://{org}-{env}.apigee.net/oauth_auth0/authorize?client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
+https://{org}-{env}.apigee.net/oauth_auth0_save_token/authorize?client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
 
 **If you include the [`audience parameter`](#auth0-api-identifier) then Auth0 will return a JWT for the access token and it will NOT be saved in Apigee Edge.**
 ```
-https://{org}-{env}.apigee.net/oauth_auth0/authorize?audience={auth0_api_identifier}&client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
+https://{org}-{env}.apigee.net/oauth_auth0_save_token/authorize?audience={auth0_api_identifier}&client_id={client_id}&response_type=code&redirect_uri=https://callback.io&scope=openid
 ```
 
 * Login to Auth0 with your username and password.
@@ -211,7 +211,7 @@ https://{org}-{env}.apigee.net/oauth_auth0/authorize?audience={auth0_api_identif
 Request for an access token
 ```
 curl -X POST \
-  https://{org}-{env}.apigee.net/oauth_auth0/token \
+  https://{org}-{env}.apigee.net/oauth_auth0_save_token/token \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/x-www-form-urlencoded' \
   -d 'client_id={clientID}&code={authCode}&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fcallback.io&client_secret={secret}'
