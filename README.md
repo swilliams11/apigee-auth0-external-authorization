@@ -151,7 +151,7 @@ Please note the following:
 # Save Auth0's Access Token in Apigee Edge
 This section describes the proxies that are used to save an external access token (an opaque token) within Apigee Edge so that you can still obtain the developer analytics.  It similar to the previous example, but it saves the external authorization code and the access token.  
 
-**You cannot save a JWT as an access token in Apigee Edge because the size it too large.**
+**You cannot save a JWT as an access token in Apigee Edge because the size is too large.**
 
 It consists of two proxies:
 1. auth0-oauth-save-token - this proxy saves the external access token with Edge.  
