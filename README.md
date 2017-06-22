@@ -56,7 +56,8 @@ This proxy demonstrates how to enable external authorization with Auth0.  It sav
 The `auth0-oauth` proxy does not save the JWT as an external access token.  Once the client has the JWT, then they should include that as an `Authorization: Bearer` header on subsequent requests.  All of your other proxies should validate the JWT, with the public certificate, expiry and custom claims.  Make sure to include the [JWT/JWE/JWS Java Callout](https://github.com/apigee/iloveapis2015-jwt-jwe-jws) written by Dino, which validates JWTs.  
 
 There is only one issue with this approach, Edge will not have the developer details, so you won't know who called your API proxy.  There are two approaches to solve this problem:
-1. Store the JWT as an external access token within Apigee Edge.  
+1. Store the JWT as an external access token within Apigee Edge.  Then use the Verify Access Token policy to validate the token exists in Apigee Edge and that the token has not expired.
+  * Additionally, you can also validate the JWT with the [Java Callout](https://github.com/apigee/iloveapis2015-jwt-jwe-jws) after the Verify Access Token policy.
 2. Validate and decode the JWT, extract the client_id, use the Verify API Key to validate it.  This will ensure that the developer details are assigned to the request and your analytics will be updated accordingly.
 
 ### High-level Flow
@@ -270,4 +271,4 @@ To find your Auth0 API Identifier follow the steps below.
 
 # TODO
 1. Create a new repo that demonstrates how to save the Auth0 access token in Apigee Edge. - COMPLETE
-2. Create a proxy to demo how to extract the client ID from the JWT and then use the Validate API Key policy to populate all the default analytics.
+2. Create a proxy to demo how to extract the client ID from the JWT and then use the Validate API Key policy to populate all the default analytics - COMPLETE see [apigee-jwt-signed-strategies](https://github.com/swilliams11/apigee-jwt-signed-strategies).
