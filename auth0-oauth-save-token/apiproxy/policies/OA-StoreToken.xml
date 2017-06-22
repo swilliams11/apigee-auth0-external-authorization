@@ -4,7 +4,7 @@
     <Properties/>
     <Attributes/>
     <ExternalAuthorization>true</ExternalAuthorization>
-    <ExternalAccessToken>apigee.jwt</ExternalAccessToken>
+    <ExternalAccessToken>apigee.token</ExternalAccessToken>
     <Operation>GenerateAccessToken</Operation>
     <StoreToken>true</StoreToken>
     <SupportedGrantTypes>

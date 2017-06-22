@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractJWT">
-    <DisplayName>EV-ExtractJWT</DisplayName>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractToken">
+    <DisplayName>EV-ExtractToken</DisplayName>
     <Properties/>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <JSONPayload>
-        <Variable name="jwt">
+        <Variable name="token">
             <JSONPath>$.access_token</JSONPath>
         </Variable>
         <Variable name="payload">

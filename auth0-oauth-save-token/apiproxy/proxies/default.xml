@@ -96,7 +96,7 @@
                     <Name>AM-SetOauthExternalAuthorizationStatus</Name>
                 </Step>
                 <Step>
-                    <Name>EV-ExtractJWT</Name>
+                    <Name>EV-ExtractToken</Name>
                 </Step>
                 <Step>
                     <Name>AM-SetPayloadForStoreToken</Name>

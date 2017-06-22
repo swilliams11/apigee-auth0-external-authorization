@@ -18,7 +18,7 @@
         <Policy>AM-UpdateRedirectURI</Policy>
         <Policy>BA-EncodeClientIdSecret</Policy>
         <Policy>EV-AuthCode</Policy>
-        <Policy>EV-ExtractJWT</Policy>
+        <Policy>EV-ExtractToken</Policy>
         <Policy>FC-DefaultFaultRule</Policy>
         <Policy>FC-ProxyFaultRules</Policy>
         <Policy>JS-ConcatClientIdRedirect</Policy>
