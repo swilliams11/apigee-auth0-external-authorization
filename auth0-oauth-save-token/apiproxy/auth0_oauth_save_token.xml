@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="2" name="auth0_oauth_store_jwt">
-    <Basepaths>/oauth_auth0</Basepaths>
+<APIProxy revision="2" name="auth0_oauth_save_token">
+    <Basepaths>/oauth_auth0_save_token</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1497992480675</CreatedAt>
-    <Description>External authorization code with Auth0 and it stores the JWT as external access token</Description>
-    <DisplayName>auth0_oauth_store_jwt</DisplayName>
+    <Description>External authorization code with Auth0 and it stores the token as external access token in Apigee Edge</Description>
+    <DisplayName>auth0_oauth_save_token</DisplayName>
     <LastModifiedAt>1498063788165</LastModifiedAt>
     <Policies>
         <Policy>AM-AssignOriginalResponseContent</Policy>

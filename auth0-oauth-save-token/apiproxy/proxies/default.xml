@@ -113,7 +113,7 @@
             </Request>
             <Response>
                 <!--
-                I attempted to get this sequence of policies to execute but I get 
+                I attempted to get this sequence of policies to execute but I get
                 unsupported grant type: authorization code.  These same policies execute successfully on the request side
                 <Step>
                     <Name>AM-SetOauthExternalAuthorizationStatus</Name>
@@ -156,7 +156,7 @@
         <Response/>
     </PreFlow>
     <HTTPProxyConnection>
-        <BasePath>/oauth_auth0_store_jwt</BasePath>
+        <BasePath>/oauth_auth0_save_token</BasePath>
         <Properties/>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>

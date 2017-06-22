@@ -8,8 +8,8 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Apigee</groupId>
-	<artifactId>auth0_oauth_store_jwt</artifactId>
+	<artifactId>auth0_oauth_save_token</artifactId>
 	<version>1.0</version>
-	<name>auth0_oauth_store_jwt</name>
+	<name>auth0_oauth_save_token</name>
 	<packaging>pom</packaging>
 </project>

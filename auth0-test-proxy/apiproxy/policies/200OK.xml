@@ -5,7 +5,7 @@
     <FaultResponse>
         <Set>
             <Headers/>
-            <Payload contentType="text/plain">Your jwt is valid, but I didn't validate it with public key!</Payload>
+            <Payload contentType="text/plain">Your token is valid!</Payload>
             <StatusCode>200</StatusCode>
             <ReasonPhrase>OK</ReasonPhrase>
         </Set>

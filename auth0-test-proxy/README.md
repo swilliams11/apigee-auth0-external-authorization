@@ -2,7 +2,7 @@
 This proxy will prove that the external access token is stored in Apigee Edge.  Follow the main README file.
 
 
-The request to this endpoint is shown below. 
+The request to this endpoint is shown below.
 ```
 curl https://org-env.apigee.net/auth0_test_proxy \
 -H 'Authorization: Bearer K9QYwZtbh'
@@ -19,5 +19,5 @@ HTTP/1.1 200 OK
 <
 * Curl_http_done: called premature == 0
 * Connection #0 to host org-env.apigee.net left intact
-Your jwt is valid, but I didn't validate it with public key!
+Your token is valid!
 ```

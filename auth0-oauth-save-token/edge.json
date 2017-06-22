@@ -81,7 +81,7 @@
     "orgConfig": {
         "apiProducts": [
             {
-                "name": "auth0-store-jwt-product",
+                "name": "auth0-save-token-product",
                 "apiResources": [
                     "/",
                     "/**"
@@ -90,17 +90,17 @@
                 "attributes": [
                     {
                         "name": "description",
-                        "value": "Auth0 store jwt product"
+                        "value": "Auth0 save token product"
                     }
                 ],
-                "description": "Auth0 Store JWT Product",
-                "displayName": "Auth0 OAuth Store JWT Product",
+                "description": "Auth0 Save Token Product",
+                "displayName": "Auth0 OAuth Save Token Product",
                 "environments": [
                     "test",
                     "prod"
                 ],
                 "proxies": [
-                    "auth0_oauth_store_jwt",
+                    "auth0_oauth_save_token",
                     "auth0_test_proxy"
                 ],
                 "quota": "10000",
@@ -121,8 +121,8 @@
         "developerApps": {
             "john@example.com": [
                 {
-                    "name": "auth0-store-jwt-app",
-                    "apiProducts": [ "auth0-store-jwt-product" ],
+                    "name": "auth0-save-token-app",
+                    "apiProducts": [ "auth0-save-token-product" ],
                     "callbackUrl": "https://callback.io",
                     "scopes": []
                 }
